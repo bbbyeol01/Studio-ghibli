@@ -1,0 +1,864 @@
+@font-face {
+    font-family: 'Cinema';
+    font-weight: lighter;
+    src: url("../font/a시네마L.ttf") format('truetype');
+  }
+
+@font-face {
+    font-family: "Pretendard-Regular";
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 100;
+    font-style: lighter;
+}
+
+/* @font-face {
+    font-family: "Pretendard-Bold";
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+} */
+
+*{
+    font-family: "Pretendard-Regular";
+}
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+.wrap {
+    display: flex;
+} 
+
+.goTop{
+    margin-left: 85vw;
+    margin-top: 80vh;
+    height: 30px;
+    width: 30px;
+    position: fixed;
+    border: 1px solid white;
+    padding: 20px;
+    border-radius: 50px;
+    z-index: 10000;
+}
+
+
+
+.goTop img{
+    height: 100%;
+    width: 100%;
+}
+
+aside {
+    /* background-color: black; */
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+    width: 10vw;
+    height: 100vh;
+}
+
+.line{
+    background-color: white; /* 활성화된 페이지네이션 도트의 색상 */
+    opacity: .8;
+    width: 1px;
+    height: calc(100vh - 80px);
+    border-radius: 10px;
+    transform-origin: center; /* 원점 기준으로 성장하도록 설정 */
+    /* transition: 0.5s ease-out; */
+    /* transition: 0.3s ease-in; 부드러운 성장 애니메이션 추가 */
+}
+
+header {
+    height: 80px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    width: 90vw;
+    justify-content: space-between;
+    
+}
+
+
+
+.logo{
+    margin-left: 10vw;
+    color: white;
+    font-family: "Pretendard-Bold";
+    /* font-weight: bolder; */
+    font-size: 17pt;
+    text-align: center;
+}
+
+.logo:hover{
+    cursor: pointer;
+}
+
+.banner {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    position: relative; /* 상대 위치로 변경 */
+}
+
+
+
+.imgContainer {
+    display: flex;
+    width: 500vw;
+    height: 100%;
+    transition: transform 1s ease;
+    transform: translate(0vw);
+}
+
+.progressBar{
+    position: fixed;
+    width: 0;
+    height: 5px;
+    background-color: pink;
+    z-index: 9999;
+    margin-top: calc(95vh - 5px);
+    animation:progressBar 6s linear forwards;
+    transition: transform 6s ease;
+}
+
+@keyframes progressBar {
+    0% {width: 0;}
+    100% {width:100vw;}
+}
+
+.inner {
+    background-color: transparent;
+    width: 100vw;
+    height: 100%;
+    position: relative;
+    display: flex;
+}
+
+.bannerImg {
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1; /* 이미지가 가장 아래에 위치하도록 설정 */
+    transform: scale(1); /* 초기 상태 */
+    transition: all 6s ease-in-out; /* 6초 동안 서서히 확대 */
+}
+
+.bannerVideo{
+    width: 110%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1; /* 이미지가 가장 아래에 위치하도록 설정 */
+}
+
+/* 애니메이션 클래스 추가 */
+/* .animate {
+    transform: scale(1.2); /* 약간 확대
+} */
+
+.overlay {
+    height: 100%;
+    width: 40vw;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 900;
+    background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    padding: 20px;
+}
+
+.overlayToBottom{
+    position: absolute;
+    width: 100%;
+    height: 50vh;
+    /* background-color: red; */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    /* background-color: red; */
+    z-index: 1005;
+}
+
+.overlayToTop{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    /* background-color: red; */
+    background: linear-gradient(to Top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    /* background-color: red; */
+    z-index: 1005;
+}
+
+.buttonContainer {
+    z-index: 999;
+    position: absolute;
+    /* top: 30%; */
+    margin-top: 35vh;
+    width: 90vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    top: 5vh;
+
+}
+
+.buttonContainer button {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+}
+
+.changeBtn-right{
+    margin-right: 5vw;
+}
+
+.buttonContainer button img {
+    width: 50px;
+    height:50px;
+    opacity: 40%;
+}
+
+
+
+.buttonContainer button img:hover {
+    opacity: 100%;
+}
+
+.titleContainer {
+    display: flex;
+    width: 500vw;
+    height: 100%;
+    position: absolute;
+    /* top: 70%; */
+    left: 0;
+    transition: transform 1s ease;
+    transform: translate(0vw);
+    z-index: 950; /* 이미지를 덮지 않도록 z-index 조정 */
+
+    margin-top: 50vh;
+
+
+}
+
+.titleContainer.detail{
+    margin-top: 20vh;
+}
+
+.titleImg {
+    height: 200px;
+    z-index: 998;
+    transition: visibility 1s ease-in-out;
+    position: absolute;
+}
+
+.infoContainer{
+    height: 30vh;
+    position: absolute;
+    /* top: 70%; */
+    z-index: 950; /* 이미지를 덮지 않도록 z-index 조정 */
+    margin-top: 30vh;
+}
+
+.name{
+    display: block;
+    font-size: 3em;
+    font-weight: bolder;
+    color: white;
+}
+
+.description{
+    margin-top: 30px;
+    word-break: keep-all;
+    width: 40vw;
+    line-height: 1.8em;
+    color: white;
+
+}
+
+.rating{
+    margin-top: 20px;
+    color: #999;
+}
+
+.posterContainer{
+    width: 200vw;
+    position: absolute;
+    margin-top: 70vh;
+    z-index: 899;
+    display: flex;
+    overflow: hidden;
+    gap: 10px;
+    transform: translate(0vw);
+}
+
+.poster{
+    width: calc(380px / 2);
+    height: calc(200px / 2);
+    background-color: transparent;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+
+
+.searchContainer{
+    display: flex;
+    align-items: center;
+    outline: none;
+    color: white;
+    border: none;
+    border-bottom: 1px solid white;
+    flex-wrap: wrap;
+}
+
+
+.search{
+    overflow: hidden;
+    height: 40px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: white;
+    width: 20vw;
+}
+
+::-webkit-input-placeholder{
+    color: white;
+}
+
+.searchIcon{
+    width: 25px;
+    height: 25px;
+}
+
+.titlePreview{
+    display: flex;
+    justify-content: space-between;
+}
+
+.titleText{
+    color: white;
+    width: 100px;
+    word-break: keep-all;
+    font-size: 10pt;
+    font-family: Pretendard-Regular;
+}
+
+.titleText:hover{
+    text-decoration: underline white;
+    cursor: pointer;
+}
+
+main{
+    /* width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; */
+}
+
+
+.goDetail{
+    position: absolute;
+    background-color: transparent;
+    width: 150px;
+    height: 50px;
+    margin-top: 230px;
+    border: solid 0.5px white;
+    border-radius: 50px;
+    color: white;
+    z-index: 1500;
+
+}
+
+.goDetail:hover{
+    background-color: white;
+    color: black;
+}
+
+.pagination {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10vh;
+    /* justify-content: center; */
+    height: 100%;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: gray;
+    border-radius: 10px;
+    margin: 10px 0;
+    transition: background-color 0.4s ease-in, width 0.4s ease-in, height 0.4s ease-out;
+    transform-origin: center; /* 높이가 자랄 때의 기준점 설정 */
+}
+
+.dot.active {
+    background-color: gray; /* 활성화된 페이지네이션 도트의 색상 */
+    width: 8px;
+    height: 120px;
+    border-radius: 10px;
+    transform-origin: center; /* 원점 기준으로 성장하도록 설정 */
+    /* transition: 0.5s ease-out; */
+    /* transition: 0.3s ease-in; 부드러운 성장 애니메이션 추가 */
+}
+
+.progressDot{
+    width: 100%;
+    height: 0%;
+    background-color: white;
+    border-radius: 50px;
+}
+
+@keyframes fill {
+    from { height: 8%; }
+    to { height: 100%; }
+}
+
+
+.start {
+    animation: fill 6.5s forwards; /* 5초 동안 가득 차도록 애니메이션 */
+}
+
+
+.introduceContainer{
+    height: 100vh;
+    margin: 0 auto;
+    margin-top: 20vh;
+    width: 60vw;
+}
+
+.introduceContainer .title{
+    color: white;
+    text-align: center;
+    margin-top: 20vh;
+}
+
+.introduceContainer hr{
+    position: absolute;
+    border: solid white 0.1px;
+    opacity: 0.2;
+}
+
+.ghibliLogo{
+    width: 100%;
+}
+
+
+.ghibriDescription{
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    font-size: large;
+    line-height: 1.8em;
+    width: 100%;
+    word-break: keep-all;
+}
+
+.ghibriDescription p {
+    padding: 15px;
+    width: 100%;
+}
+
+/* 
+.scrollContainer{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    grid-template-rows: repeat(5, 400px);
+    grid-gap: 10px;
+
+} */
+
+.newsContainer{
+    height: 140vh;
+    margin: 0 auto;
+    /* width: 80vw; */
+    /* background-color: white; */
+        background: linear-gradient(
+        rgba(0, 0, 0, 1),
+        rgba(0, 0, 0, 0.2)
+    ), url("../images/howl011.jpg");
+    background-size: cover;  /* 배경 이미지가 화면에 꽉 차도록 설정 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    backdrop-filter: blur(10px);
+}
+
+.newsContainer .title{
+    color: white;
+}
+
+.news-list{
+    height: 80vh;
+    width: 80vw;
+    overflow: scroll;
+
+}
+
+.news-item{
+    width: 80%;
+    height: 120px;
+    margin: 50px auto;
+    padding: 0 50px 50px 50px;
+    border-bottom: 1px solid #fff;
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    /* background-color : rgba(255,255,255,0.2);
+    border-radius: 20px;
+    backdrop-filter: blur(5px); */
+}
+
+.news-title{
+    font-weight: bolder;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.news-content{
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    /* white-space: nowrap; */
+    word-break: break-word;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* 원하는 라인수 */
+    -webkit-box-orient: vertical
+}
+
+
+.itemContainer{
+    width: 100vw;
+    height: 120vh;
+    background-color: #888;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemContainer .wrap {
+    height: 100vh;
+    width: 80vw;
+    background-color: pink;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.itemContainer .wrap .item-list {
+    width: 100%;
+    height: 80vh;
+    background-color: lightblue;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.itemContainer .wrap .item-list .item {
+    width: 200px;
+    height: 300px;
+}
+
+
+.bestSceneContainer{
+    height: 120vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10vh;
+}
+
+.hr1 {
+    border:0; height:1px; background: #444;
+    margin-bottom: 5vh;
+}
+
+.hr2{
+    border:0; height:1px; background: #444;
+    margin-top: 10vh;
+}
+
+.bestSceneContainer::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(30px);
+}
+
+
+.title {
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    font-size: 1em;
+    text-align: center;
+    color: white;
+    letter-spacing: 2em;
+}
+/* 
+.arrow{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5vh;
+
+}
+
+.arrow img{
+    width: 20px;
+    height: 20px;
+} */
+
+
+
+.bestSceneContainer .card-list .card-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.selected{
+    transform: scale(1.2); /* 활성화된 슬라이드를 확대 */
+    z-index: 10; /* 확대된 슬라이드가 다른 슬라이드를 덮도록 z-index 설정 */
+}
+
+
+.sceneImg{
+    width: 60vw;
+    box-shadow: 0 20px 100px rgba(0,0,0,7), 0 10px 10px rgba(0,0,0,1);
+}
+
+.dialogue{
+    align-self: flex-end;
+    position: absolute;
+    color: white;
+    margin-bottom: 40px;
+    font-family: Cinema;
+    font-size: 1.2em;
+    text-shadow: 2px 2px 5px #000;
+    text-align: center;
+    line-height: 1.5em;
+    font-weight: lighter;
+}
+
+.allPosterContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 150vh;
+    background: linear-gradient(
+        rgba(0, 0, 0, 1),
+        rgba(0, 0, 0, 0.2)
+    ), url("../images/kimitachi020.jpg");
+    background-size: cover; /* 배경 이미지가 화면에 꽉 차도록 설정 */
+      
+}
+
+.allPosterContainer1{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* box-shadow: 100px 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); */
+
+}
+
+.allPosterContainer2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* box-shadow: 100px 100px 100px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); */
+
+}
+
+.allPosterContainer .card-list .card-item{
+    background-color: red;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(53px * 4) ;
+    /* height: 100%; */
+    /* height: calc(75px * 4) ; */
+}
+
+.allPosterContainer2 .card-list .card-item{
+    background-color: red;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(53px * 4) ;
+    /* height: calc(75px * 4) ; */
+}
+
+.posterImg{
+    width: 100%;
+}
+
+footer{
+    color: #888;
+    width: 100vw;
+    background-color: black;
+}
+
+footer .inner{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    justify-content: center;
+    align-items: flex-start;
+    font-weight: 100;
+    color: white;
+    opacity: 0.7;
+}
+
+footer .footer-item{
+    margin: 15vh 50px;
+    line-height: 1.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contact-me{
+    width: 20vw;
+}
+
+
+footer .inner .footer-item .footer-title {
+    font-family: "Pretendard-Bold";
+    font-size: 1.2em;
+    margin-bottom: 5vh;
+}
+
+.copyright{
+    width: 100vw;
+    height: 1vh;
+    font-family: "Pretendard-Regular";
+    font-weight: lighter;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+    margin-bottom: 5vh;
+}
+
+
+.swiper-button-prev,
+.swiper-button-next{
+    color: gray !important;
+    padding: 10px 50px ;
+}
+
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover{
+    color: white !important;
+}
+
+
+.swiper-button-prev{
+    margin-left: 12vw;
+}
+
+.swiper-button-next{
+    margin-right: 12vw;
+}
+
+
+@media (max-width: 800px){
+
+    .dialogue{
+        font-size: smaller;
+    }
+    .search{
+        width: 8vw;
+    }
+
+
+    header{
+        display: none;
+    }
+
+    aside{
+        display: none;
+    }
+
+
+    .banner{
+        width: 100vw;
+    }
+
+    .buttonContainer{
+        align-items: center;
+        display: flex;
+        width: 100vw;
+    }
+
+    .changeBtn-right{
+        justify-content: flex-end;
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+
+    .titleContainer{
+        margin-left: 5vw;
+    }
+
+    .titleImg{
+        height: 20vh;
+    }
+
+
+}
+
+/* 
+@media (max-width: 600px) {
+    .searchContainer {
+        position: absolute;
+        top: 80px;
+        margin: 50px;
+
+    }
+
+    .banner{
+        width: 100vw;
+    }
+
+    aside{
+        display: none;
+    }
+
+    .titleImg {
+        width: 80vw;
+        margin: 0 auto;
+    }
+
+    .buttonContainer{
+        top: 10px
+    }
+} */
