@@ -9,6 +9,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const moreBtn = document.querySelector(".more");
 
+  const searchInput = document.querySelector(".search");
+
+  const aboutBtn = document.querySelector(".about");
+
+  const contactBtn = document.querySelector(".contact");
+
+  /** 검색하면 구글로 검색 */
+  searchInput.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      const query = searchInput.value.trim(); // 공백 제거
+      if (query !== "") {
+        // 검색어가 비어있지 않을 때만 검색
+        googleSearch(query);
+      }
+    }
+  });
+
+  function googleSearch(query) {
+    // 구글 검색 url
+    const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(
+      query
+    )}`;
+    location.href = googleSearchUrl;
+  }
+
+  /** 맨 위로 가기 */
   goTop.addEventListener("mouseover", function () {
     goTop.style.backgroundColor = "white";
     goTopImg.src = "../images/icon/iconmonstr-angel-up-thin-240-black.png";
@@ -24,6 +50,21 @@ document.addEventListener("DOMContentLoaded", function () {
     window.scrollTo({
       top: 0,
       behavior: "smooth", // 부드러운 스크롤 옵션
+    });
+  });
+
+  /** 맨 아래로(footer) */
+  aboutBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth",
+    });
+  });
+
+  contactBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth",
     });
   });
 
@@ -48,6 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
     isb.observe(item);
   });
 
+  /** 상품 더보기 버튼 */
   moreBtn.addEventListener("mouseover", () => {
     moreBtn.style.backgroundColor = "white";
     moreBtn.style.color = "black";

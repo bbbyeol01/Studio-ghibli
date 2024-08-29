@@ -24,21 +24,20 @@
     <header>
  
         <div class="logo">STUDIO GHIBLI</div>
-        <div class="nav">
+        <nav class="nav">
             <div class="titlePreview">
                 <a href="index.html" class="titleText">HOME</a>
-                <a class="titleText">ABOUT</a>
-                <a class="titleText">LIST</a>
-                <a class="titleText">CONTACT</a>
-                <!-- <div class="titleText"></div> -->
+                <a class="titleText about">ABOUT</a>
+                <a class="titleText list">LIST</a>
+                <a class="titleText contact">CONTACT</a>
             </div>
-        </div>
+        </nav>
     
 
-        <div class="searchContainer">
+        <section class="searchContainer">
             <input type="text" name="" id="" placeholder="검색할 내용을 입력하세요" class="search">
             <img class="searchIcon" src="images/icon/iconmonstr-magnifier-lined-240.png" alt="" srcset=""> 
-        </div>
+        </section>
         
       
     </header>
@@ -66,7 +65,7 @@
             </div>
         </aside>
 
-        <div class="banner">
+        <section class="banner">
             <div class="titleContainer">
                 <div class="inner">
                     <img class="titleImg animate__animated  animate__fadeInUp" src="images/howl-logo.png">
@@ -119,14 +118,14 @@
                     <img class="bannerImg animate__animated animate__fadeInUp" src="images/chihiro022.jpg">
                 </div>
             </div>
-        </div>
+        </section>
 
      
     </div>
 
     <main>
 
-        <div class="introduceContainer animate__animated">
+        <section class="introduceContainer animate__animated">
             <hr>
             <img class="ghibliLogo" src="images/1920px-Studio_Ghibli_logo.svg.png" alt="" srcset="">
             <div class="ghibriDescription">
@@ -142,9 +141,9 @@
                     '지브리'는 사하라 사막에 부는 모래돌풍 이름인데, 이탈리아 군용 정찰기의 이름으로 사용되었던 것을 비행기 매니아인 미야자키 하야오가 스튜디오 이름으로 정했다.
                 </p>
             </div>
-        </div>
+        </section>
 
-        <div class="newsContainer animate__animated">
+        <section class="newsContainer animate__animated">
             <div class="title animate__animated">NEWS</div>
             <div class="news-list">
                 <div class="news-item">
@@ -176,9 +175,9 @@
                         프로그램 후반에서는 「지브리 작품의 다양한 생물」 대특집이 방영됩니다. 기대하세요!</div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="allPosterContainer">
+        <section class="allPosterContainer">
             
             <div class="title animate__animated">ALL MOVIES</div>
                     <div class="allPosterContainer1" dir="ltr">
@@ -238,51 +237,56 @@
                     </div>
                     
 
-        </div>
+        </section>
         
 
     </main>
 
 
     <footer>
-        <div class="inner">
-            <div class="contact-me footer-item" >
+        <section class="inner">
+   
+            <article class="contact-me footer-item" >
                 <div class="footer-title">CONTACT ME</div>
-                <div>
-                    <div>
+                <div class="iconContainer">
+                    <a href="https://github.com/bbbyeol01?tab=repositories"><img class="github" src="images/icon/github-logo.png" alt="" srcset=""> </a>
+                    <a href="https://torobbb.tistory.com/"><img class="tistory" src="images/icon/tistory-logo.png" alt="" srcset=""> </a>
+
+                </div>
+                    <!-- <div>
                         <div class="">
                             <input type="email" class="send-email" placeholder="의견을 보내주세요.">
                             <button>Send</button>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="category footer-item">
+                    </div> -->
+            </article>
+            <article class="category footer-item">
                 <div  class="footer-title">CATEGORY</div>
-                <div>Home</div>
-                <div>About</div>
-                <div>List</div>
-                <div>Contact</div>
-            </div>
-            <div class="about-me footer-item">
+                <a href="index.html">HOME</a>
+                <a>ABOUT</a>
+                <a>LIST</a>
+                <a>CONTACT</a>
+            </article>
+            <article class="about-me footer-item">
                 <div  class="footer-title">ABOUT ME</div>
                 <div>임새별</div>
                 <div>010-2526-7049</div>
                 <div>forbyeol@gmail.com</div>
                 <div>torobbb.tistory.com</div>
-            </div>
-            <div class="footer-item">
-                <div  class="footer-title">뭐넣냐</div>
-                <div>뭐넣지</div>
-                <div>여기에</div>
-            </div>
+            </article>
+
+            <article class="footer-item">
+                <div class="footer-title">RELATED</div>
+                <div><a href="https://www.ghibli.jp/">STUDIO GHIBLI</a></div>
+                <div><a href="https://www.dotorisup.com/">도토리숲</a></div>
+            </article>
 
 
-        </div>
-         <hr class="hr1">
-         <div class="copyright"> 
-            <div>© 2024. STUDIO GHIBLI All rights reserved.</div>
-         </div>
+        </section>
+         <hr class="hr2">
+         <section class="copyright"> 
+            <div>© 2005 - 2024. STUDIO GHIBLI Inc.</div>
+         </section>
     </footer>
 
 <!-- Swiper-->
