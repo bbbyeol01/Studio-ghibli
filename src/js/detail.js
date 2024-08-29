@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const moreBtn = document.querySelector(".more");
   /** 상품 더보기 버튼 */
   moreBtn.addEventListener("mouseover", () => {
     moreBtn.style.backgroundColor = "white";

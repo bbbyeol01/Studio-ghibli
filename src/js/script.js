@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const titles = document.querySelectorAll(".title");
   const newsItems = document.querySelectorAll(".news-item");
 
-  const moreBtn = document.querySelector(".more");
+ 
 
   const searchInput = document.querySelector(".search");
 
