@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const logos = document.querySelectorAll(".titleImg");
   const buttons = document.querySelectorAll(".goDetail");
 
+  const bannerImgs = document.querySelectorAll(".bannerImg");
+
   /** 자세히 보기  */
   buttons.forEach((e) => {
     e.addEventListener("click", function () {
@@ -25,9 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // entry.target.classList.add("animate__fadeIn");
         entry.target.style.opacity = 1;
       }
-      // else {
-      //   entry.target.classList.remove("animate__fadeInRight");
-      // }
     });
   });
 
@@ -84,97 +83,54 @@ document.addEventListener("DOMContentLoaded", function () {
   } //resetInterval
 
   // 현재 이미지 슬라이드 위치
-  let currentTranslate = 0;
+  let currentIndex = 0;
+  const bannerLength = bannerImgs.length;
 
   /** 배너 이미지 다음으로 넘김 */
   function changeImgRight() {
-    let currentTransform = imgContainer.style.transform;
-
-    const regex = /translate\((-?\d+)\s*vw\)/;
-    const match = regex.exec(currentTransform);
-
-    if (match) {
-      currentTranslate = match[1];
-    }
+    currentIndex++;
 
     // 마지막 슬라이드면 처음 슬라이드로 돌아감
-    if (currentTranslate < -300) {
-      imgContainer.style.transform = `translate(0vw)`;
-      titleContainer.style.transform = `translate(0vw)`;
-      updateDots(0); // 첫 번째 도트 활성화
-      updateProgressbar(0);
-    } else {
-      imgContainer.style.transform = `translate(${currentTranslate - 100}vw)`;
-      titleContainer.style.transform = `translate(${currentTranslate - 100}vw)
-      `;
-      updateDots((currentTranslate - 100) / -100); // 현재 슬라이드에 맞게 도트 업데이트
-      updateProgressbar((currentTranslate - 100) / -100);
+    if (currentIndex >= bannerLength) {
+      currentIndex = 0;
     }
+    imgContainer.style.transform = "translate(" + -currentIndex * 100 + "vw)";
+    titleContainer.style.transform = "translate(" + -currentIndex * 100 + "vw)";
+    updateDots(currentIndex); // 첫 번째 도트 활성화
+    updateProgressbar(currentIndex);
 
     // 현재 슬라이드의 로고에 애니메이션 클래스 추가
-    logos[(currentTranslate - 100) / -100].classList.add("animate__fadeInUp");
-    buttons[(currentTranslate - 100) / -100].classList.add("animate__fadeInUp");
+    logos[currentIndex].classList.add("animate__fadeInUp");
+    buttons[currentIndex].classList.add("animate__fadeInUp");
 
     // 일정 시간 후 애니메이션 클래스 제거
     setTimeout(() => {
-      logos[(currentTranslate - 100) / -100].classList.remove(
-        "animate__fadeInUp"
-      );
-      buttons[(currentTranslate - 100) / -100].classList.remove(
-        "animate__fadeInUp"
-      );
+      logos[currentIndex].classList.remove("animate__fadeInUp");
+      buttons[currentIndex].classList.remove("animate__fadeInUp");
     }, 1000); // 애니메이션 지속 시간 (1초) 이후 제거
   } //changeImgRight
 
   /** 배너 이미지 이전으로 넘김 */
   function changeImgLeft() {
-    let currentTransform = imgContainer.style.transform;
+    currentIndex--;
 
-    const regex = /translate\((-?\d+)\s*vw\)/;
-    const match = regex.exec(currentTransform);
-
-    // let currentTranslate = 0;
-
-    // 현재 위치 구하기(가로축))
-    if (match) {
-      currentTranslate = match[1];
+    if (currentIndex < 0) {
+      currentIndex = bannerLength - 1;
     }
 
-    console.log(currentTranslate);
+    imgContainer.style.transform = "translate(" + -currentIndex * 100 + "vw)";
+    titleContainer.style.transform = "translate(" + -currentIndex * 100 + "vw)";
+    updateDots(currentIndex); // 첫 번째 도트 활성화
+    updateProgressbar(currentIndex);
 
-    if (currentTranslate == 0) {
-      imgContainer.style.transform = `translate(-400vw)`;
-      titleContainer.style.transform = `translate(-400vw)`;
-      updateDots(4); // 마지막 도트 활성화
-      updateProgressbar(4);
-    } else {
-      imgContainer.style.transform = `translate(${
-        parseInt(currentTranslate) + 100
-      }vw)`;
-      titleContainer.style.transform = `translate(${
-        parseInt(currentTranslate) + 100
-      }vw)`;
-      updateDots(parseInt(currentTranslate) / -100 - 1); // 현재 슬라이드에 맞게 도트 업데이트
-      updateProgressbar(parseInt(currentTranslate) / -100 - 1); // 현재 슬라이드에 맞게 도트 업데이트
-    }
+    // 현재 슬라이드의 로고에 애니메이션 클래스 추가
+    logos[currentIndex].classList.add("animate__fadeInUp");
+    buttons[currentIndex].classList.add("animate__fadeInUp");
 
-    // 현재 슬라이드의 로고에 애니메이션 추가
-    logos[parseInt(currentTranslate) / -100 - 1].classList.add(
-      "animate__fadeInUp"
-    );
-    buttons[parseInt(currentTranslate) / -100 - 1].classList.add(
-      "animate__fadeInUp"
-    );
-    // logos[1].classList.add("animate__animated");
-
-    // 일정 시간 후 애니메이션 제거(제거 안하면 한바퀴 돌았을 때 애니메이션 동작 안함)
+    // 일정 시간 후 애니메이션 클래스 제거
     setTimeout(() => {
-      logos[parseInt(currentTranslate) / -100 - 1].classList.remove(
-        "animate__fadeInUp"
-      );
-      buttons[parseInt(currentTranslate) / -100 - 1].classList.remove(
-        "animate__fadeInUp"
-      );
+      logos[currentIndex].classList.remove("animate__fadeInUp");
+      buttons[currentIndex].classList.remove("animate__fadeInUp");
     }, 1000); // 애니메이션 지속 시간 (1초) 이후 제거
-  } // changeImgLeft
+  } //changeImgRight
 });
