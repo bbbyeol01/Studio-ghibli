@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const titles = document.querySelectorAll(".title");
   const newsItems = document.querySelectorAll(".news-item");
 
+  const moreBtn = document.querySelector(".more");
+
   goTop.addEventListener("mouseover", function () {
     goTop.style.backgroundColor = "white";
     goTopImg.src = "../images/icon/iconmonstr-angel-up-thin-240-black.png";
@@ -44,5 +46,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   newsItems.forEach((item) => {
     isb.observe(item);
+  });
+
+  moreBtn.addEventListener("mouseover", () => {
+    moreBtn.style.backgroundColor = "white";
+    moreBtn.style.color = "black";
+  });
+
+  moreBtn.addEventListener("mouseout", () => {
+    moreBtn.style.background = "none";
+    moreBtn.style.color = "white";
+  });
+
+  moreBtn.addEventListener("click", () => {
+    location.href = "https://www.dotorisup.com/category/435475";
   });
 });
