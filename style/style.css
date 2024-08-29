@@ -483,9 +483,7 @@ main{
     backdrop-filter: blur(10px);
 }
 
-.newsContainer .title{
-    color: white;
-}
+
 
 .news-list{
     height: 80vh;
@@ -592,6 +590,7 @@ main{
     text-align: center;
     color: white;
     letter-spacing: 2em;
+    transition: opacity 2s ease; 
 }
 
 /* 
