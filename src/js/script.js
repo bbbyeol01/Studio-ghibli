@@ -7,8 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const titles = document.querySelectorAll(".title");
   const newsItems = document.querySelectorAll(".news-item");
 
- 
-
   const searchInput = document.querySelector(".search");
 
   const aboutBtn = document.querySelector(".about");
@@ -31,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(
       query
     )}`;
+    // window.open(googleSearchUrl);
     location.href = googleSearchUrl;
   }
 
@@ -88,6 +87,4 @@ document.addEventListener("DOMContentLoaded", function () {
   newsItems.forEach((item) => {
     isb.observe(item);
   });
-
-
 });

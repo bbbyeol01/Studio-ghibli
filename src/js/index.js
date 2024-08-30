@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // 현재 실행 중인 setInterval을 중지
     clearInterval(slideInterval);
     // 새로운 setInterval을 설정
-    slideInterval = setInterval(changeImgRight, 6000);
+    slideInterval = setInterval(changeImgRight, 5000);
   } //resetInterval
 
   // 현재 이미지 슬라이드 위치
